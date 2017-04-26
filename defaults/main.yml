@@ -1,0 +1,5 @@
+---
+# defaults file for libvirt-config
+
+libvirt_group_members: root
+

@@ -1,0 +1,9 @@
+---
+# tasks file for libvirt-config
+
+- name: add users to libvirtd group
+  user:
+    name: '{{ item }}'
+    groups: libvirt
+    append: yes
+  with_items: "{{ libvirt_group_members }}"
