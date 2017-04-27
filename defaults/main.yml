@@ -1,5 +1,14 @@
 ---
 # defaults file for libvirt-config
 
-libvirt_group_members: root
+libvirt_group_members: 
+  - root
 
+libvirt_vms_path: /var/lib/libvirt/images/
+libvirt_default_storage_pool: Default
+libvirt_default_network: default
+
+libvirt_rootserver_setup: false
+libvirt_rootserver_ipv4: false
+libvirt_rootserver_ipv4_gw: false
+libvirt_rootserver_ipv4_netmask: false

@@ -7,3 +7,25 @@
     groups: libvirt
     append: yes
   with_items: "{{ libvirt_group_members }}"
+
+- name: edit interfaces
+  template:
+    src: 'debian/network_interfaces.j2'
+    dest: '/etc/network/interfaces'
+    owner: root
+    group: root
+    mode: '0644'
+    backup: yes
+  notify: restart networking
+
+- name: Start networks if not started
+  virt_net:
+    name: 'default'
+    state: 'active'
+  become: False
+
+- name: Set autostart attribute on networks
+  virt_net:
+    name: 'default'
+    autostart: 'yes'
+  become: False

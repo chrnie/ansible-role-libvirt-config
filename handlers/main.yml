@@ -1,2 +1,7 @@
 ---
 # handlers file for libvirt-config
+
+- name: restart networking
+  service:
+    name: networking
+    state: restarted

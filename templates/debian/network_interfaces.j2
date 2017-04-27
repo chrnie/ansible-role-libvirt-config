@@ -1,0 +1,19 @@
+# Loopback device:
+auto lo
+iface lo inet loopback
+
+# device: br0
+auto  br0
+iface br0 inet static
+ address {% if libvirt_rootserver_ipv4 %}{{ libvirt_rootserver_ipv4 }}{% else %}{{ hostvars[ansible_host]['ansible_default_ipv4']['address'] }} {% endif %}
+
+ netmask {% if libvirt_rootserver_ipv4_netmask %}{{ libvirt_rootserver_ipv4_netmask }}{% else %}{{ hostvars[ansible_host]['ansible_default_ipv4']['netmask'] }} {% endif %}
+
+ gateway {% if libvirt_rootserver_ipv4_gw %}{{ libvirt_rootserver_ipv4_gw }}{% else %}{{ hostvars[ansible_host]['ansible_default_ipv4']['gateway'] }} {% endif %}
+
+ bridge_ports eth0
+ bridge_stp off
+ bridge_fd 1
+ bridge_hello 2
+ bridge_maxage 12
+
