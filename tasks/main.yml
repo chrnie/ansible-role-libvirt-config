@@ -24,8 +24,8 @@
     state: 'active'
   become: False
 
-- name: Set autostart attribute on networks
-  virt_net:
-    name: 'default'
-    autostart: 'yes'
-  become: False
+#- name: Set autostart attribute on networks
+#  virt_net:
+#    name: 'default'
+#    autostart: 'yes'
+#  become: False
