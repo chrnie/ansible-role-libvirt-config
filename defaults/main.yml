@@ -12,3 +12,4 @@ libvirt_rootserver_setup: false
 libvirt_rootserver_ipv4: false
 libvirt_rootserver_ipv4_gw: false
 libvirt_rootserver_ipv4_netmask: false
+libvirt_rootserver_ifName: eth0

@@ -8,6 +8,10 @@
     append: yes
   with_items: "{{ libvirt_group_members }}"
 
+- fail: 
+    msg: "The system may not be provisioned according to the CMDB status."
+  when: libvirt_rootserver_ifName not in hostvars[ansible_host]['ansible_interfaces']
+
 - name: edit interfaces
   template:
     src: 'debian/network_interfaces.j2'
