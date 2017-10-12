@@ -13,3 +13,8 @@ libvirt_rootserver_ipv4: false
 libvirt_rootserver_ipv4_gw: false
 libvirt_rootserver_ipv4_netmask: false
 libvirt_rootserver_ifName: eth0
+
+# You have ordered public IPs?
+# Choose if you have a whole subnet(1.2.3.4/29) or single IPs(single)
+# Default is false
+libvirt_rootserver_guestIP: False

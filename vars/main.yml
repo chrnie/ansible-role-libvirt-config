@@ -1,0 +1,5 @@
+---
+# vars file for ansible-role-libvirt-config
+
+libvirt_rootserver_guestIP_IP: "{{ libvirt_rootserver_guestIP | regex_search('(?:[0-9]{1,3}\\.){3}[0-9]{1,3}') }}"
+libvirt_rootserver_guestIP_PREFIX: "{{ libvirt_rootserver_guestIP | regex_search('([1-3]?[0-9])$') | int }}"

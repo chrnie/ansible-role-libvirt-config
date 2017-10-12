@@ -9,7 +9,7 @@ Tested on a Hetzner root server
 
 ## Requirements
 
-None.
+python2-netaddr
 
 
 ## Role Variables

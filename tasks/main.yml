@@ -8,9 +8,17 @@
     append: yes
   with_items: "{{ libvirt_group_members }}"
 
-- fail: 
-    msg: "The system may not be provisioned according to the CMDB status."
+- name: Fail if given interface not exist.
+  fail:
+    msg: "Given interface {{libvirt_rootserver_ifName}} not in systems interfaces list!"
   when: libvirt_rootserver_ifName not in hostvars[ansible_host]['ansible_interfaces']
+
+- name: Fail if given public guest ip is not valid
+  fail: 
+    msg: "libvirt_rootserver_guestIP in wrong format: 'single', 'public' or '11.22.33.44/29'. Value: {{libvirt_rootserver_guestIP}}"
+  when: libvirt_rootserver_guestIP != "False" and
+        libvirt_rootserver_guestIP != "single" and
+        not libvirt_rootserver_guestIP | ipaddr
 
 - name: edit interfaces
   template:
